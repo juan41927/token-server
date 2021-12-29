@@ -21,6 +21,14 @@ app.get("/api", (request, res) => {
   res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   const identity = request.query.identity || "identity";
   const room = request.query.room;
+
+  if (identity === "undefined" || room === "undefined") {
+    res.status(err.status || 500);
+    res.send({
+      message: err.message,
+      error: {},
+    });
+  }
   const token = tokenGenerator(identity, room);
   res.send(token);
 });
