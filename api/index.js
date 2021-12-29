@@ -4,7 +4,7 @@ const http = require("http");
 const path = require("path");
 const express = require("express");
 const cors = require("cors");
-const tokenGenerator = require("./src/token_generator");
+const tokenGenerator = require("../src/token_generator");
 
 // Create Express webapp
 const app = express();
@@ -16,17 +16,18 @@ app.use(express.static(path.join(__dirname, "public")));
 // Body parser
 app.use(express.urlencoded({ extended: false }));
 
-app.get("/", function (request, response) {
-  // asddw();
+app.get("/api", (request, res) => {
+  res.setHeader("Content-Type", "text/html");
+  res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   const identity = request.query.identity || "identity";
   const room = request.query.room;
   const token = tokenGenerator(identity, room);
-  response.send(token);
+  res.send(token);
 });
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function (err, req, res, next) {
+app.use((err, req, res, next) => {
   console.trace(err);
   res.status(err.status || 500);
   res.send({
