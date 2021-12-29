@@ -18,14 +18,15 @@ app.use(express.urlencoded({ extended: false }));
 
 app.get("/api", (request, res) => {
   res.setHeader("Content-Type", "text/html");
-  res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
-  const identity = request.query.identity || "identity";
+  const identity = request.query.identity;
   const room = request.query.room;
 
-  if (identity === "undefined" || room === "undefined") {
+  console.log(identity);
+
+  if (identity === undefined || room === undefined) {
     res.status(err.status || 500);
     res.send({
-      message: err.message,
+      message: "Debe definir un usuario y un chat room",
       error: {},
     });
   }
