@@ -13,6 +13,9 @@ app.use(cors());
 
 app.use(express.static(path.join(__dirname, "public")));
 
+// Body parser
+app.use(express.urlencoded({ extended: false }));
+
 app.get("/", function (request, response) {
   // asddw();
   const identity = request.query.identity || "identity";
