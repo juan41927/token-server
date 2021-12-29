@@ -1,0 +1,37 @@
+{
+  "name": "video-access-token-server-node",
+  "version": "1.0.0",
+  "description": "Video Access Token Server for Node.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/TwilioDevEd/video-access-token-server-node"
+  },
+  "keywords": [
+    "twilio",
+    "video",
+    "ip",
+    "video",
+    "chat",
+    "real",
+    "time",
+    "diggity"
+  ],
+  "author": "Twilio Developer Education",
+  "license": "MIT",
+  "engines": {
+    "node": ">=8.0.0 <14.0.0"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "twilio": "^3.72.0"
+  },
+  "devDependencies": {
+    "jsonwebtoken": "^8.5.1"
+  }
+}
