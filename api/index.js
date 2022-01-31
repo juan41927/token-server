@@ -7,7 +7,7 @@ const cors = require("cors");
 const tokenGenerator = require("../src/token_generator");
 
 const FCM = require('fcm-node');
-const serverKey = "AAAA6AnqQas:APA91bFcmhBbw4WyX-iA5iB0g3d9U7cztiXWBT8ThVhasFV6Il8khM5kcSuF9HzGqUZfrY28mgkA7uI-ZrG931bvEEdNcPoySkQYydLbwaRYLHxTszDC4z305DR-WBfBMDMixxa-XX6b";
+const serverKey = process.env.PUSH_SERVICE;
 const fcm = new FCM(serverKey);
 
 // Create Express webapp
