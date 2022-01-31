@@ -4,7 +4,7 @@
             "source": "/api/(.*)", "destination": "/api" 
         },
         { 
-            "source": "/push/(.*)", "destination": "/send-push" 
+            "source": "/send-push/(.*)", "destination": "/send-push" 
         }
     ]
 }
