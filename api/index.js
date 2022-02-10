@@ -38,6 +38,11 @@ app.get("/api", (request, res) => {
   res.send(token);
 });
 
+app.get('/api/cors', (req, res, next) => {
+  res.setHeader("Content-Type", "application/json");
+  res.json({ message: 'This route is CORS-enabled for an allowed origin.' });
+});
+
 /** Recibe Push notification from mobile app */
 app.post('/send-push', (req, res) => {
   const message = {
