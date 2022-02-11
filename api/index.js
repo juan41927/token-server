@@ -47,7 +47,7 @@ app.get('/api/cors',async (req, res, next) => {
   console.log(post);
 
   res.setHeader("Content-Type", "application/json");
-  res.json({ 'posts': post});
+  res.json({ post });
 });
 
 /** Recibe Push notification from mobile app */
