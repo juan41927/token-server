@@ -30,7 +30,8 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
     "fcm-node": "^1.6.1",
-    "twilio": "^3.72.0"
+    "twilio": "^3.72.0",
+    "wpapi": "^1.2.2"
   },
   "devDependencies": {
     "jsonwebtoken": "^8.5.1"

@@ -5,6 +5,7 @@ const path = require("path");
 const express = require("express");
 const cors = require("cors");
 const tokenGenerator = require("../src/token_generator");
+const WPAPI = require( "wpapi" );
 
 const FCM = require('fcm-node');
 const serverKey = process.env.PUSH_SERVICE;
@@ -38,9 +39,15 @@ app.get("/api", (request, res) => {
   res.send(token);
 });
 
-app.get('/api/cors', (req, res, next) => {
+app.get('/api/cors',async (req, res, next) => {
+  const wp = new WPAPI({ endpoint: 'https://resetlifeapp.com/wp-json' }); 
+  
+  const post = await wp.posts().categories( 15 ).perPage( 3 ).page( 1 ).embed();
+
+  console.log(post);
+
   res.setHeader("Content-Type", "application/json");
-  res.json({ message: 'This route is CORS-enabled for an allowed origin.' });
+  res.json({ 'posts': post});
 });
 
 /** Recibe Push notification from mobile app */
